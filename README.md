@@ -1,4 +1,4 @@
-# neural_network
+# Neurolib
 
 Presenting Neurolib, my journey into neuroinformatics and the world of neural networks, with building my own library :)
 
