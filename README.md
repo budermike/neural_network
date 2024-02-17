@@ -1,2 +1,9 @@
 # neural_network
-Here I try to get into the world of neural networks. Come with me on my journey :)
+
+Presenting Neurolib, my journey into neuroinformatics and the world of neural networks, with building my own library :)
+
+I don't have any experience in neuroinformatics. Just having fun and taking big interest and curiousity.
+
+I hope you will enjoy it too and join this process :)
+
+
