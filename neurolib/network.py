@@ -146,7 +146,6 @@ def test_network(network, x_test, y_test, title, show_img=False, reshape_x=None,
     print("")
 
 
-#add plotting of images
 def own_image_predict(network, x_test, title, reshape_x, reshape_y):
     print(f"\n--- {title} ---\n")
     pred_count = 0
