@@ -41,17 +41,112 @@ Performs a forward pass through the neural network.
 #### Returns:
 - numpy.ndarray: The output prediction of the neural network.
 
-#### Example Usage:
-```python
-# Make predictions
-for input_sample in input_data_to_predict:
-    
-    # Perform forward pass to get predictions
-    prediction = predict(network, input)
+### - train(network, loss, loss_prime, x_train, y_train, epochs=1000, learning_rate=0.01, verbose=True, detailed_verbose=True, statistics=True, L1=False, L2=False, L1_reg=0.0, L2_reg=0.0)
 
-    # Display the input and corresponding prediction
-    print(f"Input: {input}, Prediction: {prediction}")
-```
+#### Description:
+Trains the neural network using the specified training data and hyperparameters.
+
+#### Parameters:
+- `network` (list): List of layers comprising the neural network.
+- `loss` (function): The loss function used for training.
+- `loss_prime` (function): The derivative of the loss function.
+- `x_train` (numpy.ndarray): The input training data.
+- `y_train` (numpy.ndarray): The target training data.
+- `epochs` (int): Number of training epochs. (default: 1000)
+- `learning_rate` (float): Learning rate for gradient descent. (default: 0.01)
+- `verbose` (bool): Whether to print training progress. (default: True)
+- `detailed_verbose` (bool): Whether to print detailed training progress. (default: True)
+- `statistics` (bool): Whether to print training statistics. (default: True)
+- `L1` (bool): Whether to apply L1 regularization. (default: False)
+- `L2` (bool): Whether to apply L2 regularization. (default: False)
+- `L1_reg` (float): L1 regularization parameter. (default: 0.0)
+- `L2_reg` (float): L2 regularization parameter. (default: 0.0)
+
+### - show_para(epochs, learning_rate, network, L1_reg, L2_reg)
+
+#### Description:
+Displays the hyperparameters used for training.
+
+#### Parameters:
+- `epochs` (int): Number of training epochs.
+- `learning_rate` (float): Learning rate for gradient descent.
+- `network` (list): List of layers comprising the neural network.
+- `L1_reg` (float): L1 regularization parameter.
+- `L2_reg` (float): L2 regularization parameter.
+
+### - accuracy(network, x_test, y_test)
+
+#### Description:
+Evaluates the accuracy of the trained network on the test data.
+
+#### Parameters:
+- `network` (list): List of layers comprising the neural network.
+- `x_test` (numpy.ndarray): The input test data.
+- `y_test` (numpy.ndarray): The target test data.
+
+### - test_network(network, x_test, y_test, title, show_img=False, reshape_x=None, reshape_y=None)
+
+#### Description:
+Tests the trained network on the test data and displays results.
+
+#### Parameters:
+- `network` (list): List of layers comprising the neural network.
+- `x_test` (numpy.ndarray): The input test data.
+- `y_test` (numpy.ndarray): The target test data.
+- `title` (str): Title for the test results.
+- `show_img` (bool): Whether to display images. (default: False)
+- `reshape_x` (int): Reshape dimension for x data.
+- `reshape_y` (int): Reshape dimension for y data.
+
+### - own_image_predict(network, x_test, title, reshape_x, reshape_y)
+
+#### Description:
+Makes predictions on custom images using the trained network.
+
+#### Parameters:
+- `network` (list): List of layers comprising the neural network.
+- `x_test` (numpy.ndarray): The input test data.
+- `title` (str): Title for the prediction results.
+- `reshape_x` (int): Reshape dimension for x data.
+- `reshape_y` (int): Reshape dimension for y data.
+
+### - add_parent_dir(dir_path)
+
+#### Description:
+Adds the parent directory of the given directory to the system path.
+
+#### Parameters:
+- `dir_path` (str): The directory path whose parent directory will be added to the system path.
+
+#### Returns:
+- parent directory
+
+### - save_network(network, directory, filename)
+
+#### Description:
+Saves the trained network in the specified directory with the specified filename.
+
+#### Parameters:
+- `network` (list): List of layers comprising the neural network.
+- `directory` (str): The directory where the network should be stored.
+- `filename` (str): The name of the file to save the trained network.
+
+#### Filetype: .pkl (pickle file)
+
+### - load_network(system_path, file_name)
+
+#### Description:
+Loads the trained network from the specified file in the given system path.
+
+#### Parameters:
+- `system_path` (str): The system path where the network file is located.
+- `file_name` (str): The name of the file containing the trained network.
+
+#### Returns:
+- The loaded network object.
+
+#### Filetype: .pkl (pickle file)
+
 
 ## Contribution Guidelines
 
