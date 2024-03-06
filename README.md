@@ -35,6 +35,7 @@ Performs one-hot encoding for the given labels.
 
 #### Returns:
 - numpy.ndarray: The one-hot encoded labels.
+<br/>
 
 ### - predict(network, input)
 
@@ -47,6 +48,7 @@ Performs a forward pass through the neural network.
 
 #### Returns:
 - numpy.ndarray: The output prediction of the neural network.
+<br/>
 
 ### - train(network, loss, loss_prime, x_train, y_train, epochs=1000, learning_rate=0.01, verbose=True, detailed_verbose=True, statistics=True, L1=False, L2=False, L1_reg=0.0, L2_reg=0.0)
 
@@ -68,6 +70,7 @@ Trains the neural network using the specified training data and hyperparameters.
 - `L2` (bool): Whether to apply L2 regularization. (default: False)
 - `L1_reg` (float): L1 regularization parameter. (default: 0.0)
 - `L2_reg` (float): L2 regularization parameter. (default: 0.0)
+<br/>
 
 ### - show_para(epochs, learning_rate, network, L1_reg, L2_reg)
 
@@ -80,6 +83,7 @@ Displays the hyperparameters used for training.
 - `network` (list): List of layers comprising the neural network.
 - `L1_reg` (float): L1 regularization parameter.
 - `L2_reg` (float): L2 regularization parameter.
+<br/>
 
 ### - accuracy(network, x_test, y_test)
 
@@ -90,6 +94,7 @@ Evaluates the accuracy of the trained network on the test data.
 - `network` (list): List of layers comprising the neural network.
 - `x_test` (numpy.ndarray): The input test data.
 - `y_test` (numpy.ndarray): The target test data.
+<br/>
 
 ### - test_network(network, x_test, y_test, title, show_img=False, reshape_x=None, reshape_y=None)
 
@@ -104,6 +109,7 @@ Tests the trained network on the test data and displays results.
 - `show_img` (bool): Whether to display images. (default: False)
 - `reshape_x` (int): Reshape dimension for x data.
 - `reshape_y` (int): Reshape dimension for y data.
+<br/>
 
 ### - own_image_predict(network, x_test, title, reshape_x, reshape_y)
 
@@ -116,6 +122,7 @@ Makes predictions on custom images using the trained network.
 - `title` (str): Title for the prediction results.
 - `reshape_x` (int): Reshape dimension for x data.
 - `reshape_y` (int): Reshape dimension for y data.
+<br/>
 
 ### - add_parent_dir(dir_path)
 
@@ -127,6 +134,7 @@ Adds the parent directory of the given directory to the system path.
 
 #### Returns:
 - parent directory
+<br/>
 
 ### - save_network(network, directory, filename)
 
@@ -139,6 +147,7 @@ Saves the trained network in the specified directory with the specified filename
 - `filename` (str): The name of the file to save the trained network.
 
 #### Filetype: .pkl (pickle file)
+<br/>
 
 ### - load_network(system_path, file_name)
 
@@ -153,8 +162,10 @@ Loads the trained network from the specified file in the given system path.
 - The loaded network object.
 
 #### Filetype: .pkl (pickle file)
+<br/>
 
 ### Activation Functions (activations.py)
+<br/>
 
 ### - Sigmoid()
 
@@ -170,6 +181,7 @@ activation_layer = Sigmoid()  # Create a sigmoid activation layer
 output = activation_layer.forward(input_data)  # Apply sigmoid activation
 gradient = activation_layer.backward(output_gradient, learning_rate=0.01)  # Calculate gradient
 ```
+<br/>
 
 ### - Softmax()
 
@@ -185,6 +197,7 @@ output_layer = Softmax()  # Use Softmax in the output layer
 output = output_layer.forward(logits)  # Apply softmax to logits (unnormalized scores)
 predicted_class = np.argmax(output, axis=1)  # Get the class with the highest probability
 ```
+<br/>
 
 ### - Hyperbolic Tangent (Tanh())
 
@@ -201,6 +214,7 @@ activation_layer = Tanh()  # Create a tanh activation layer
 output = activation_layer.forward(input_data)  # Apply tanh activation
 gradient = activation_layer.backward(output_gradient, learning_rate=0.01)  # Calculate gradient
 ```
+<br/>
 
 ### - Rectified Linear Unit (ReLU())
 
@@ -218,6 +232,7 @@ activation_layer = ReLU()  # Create a ReLU activation layer
 output = activation_layer.forward(input_data)  # Apply ReLU activation
 gradient = activation_layer.backward(output_gradient, learning_rate=0.01)  # Calculate gradient
 ```
+<br/>
 
 ### - Leaky Rectified Linear Unit (LeakyReLU())
 
@@ -235,6 +250,7 @@ activation_layer = LeakyReLU(alpha=0.1)  # Create a Leaky ReLU layer with alpha=
 output = activation_layer.forward(input_data)  # Apply Leaky ReLU activation
 gradient = activation_layer.backward(output_gradient, learning_rate=0.01)  # Calculate gradient
 ```
+<br/>
 
 ### - Parametric Rectified Linear Unit (PReLU())
 
@@ -251,6 +267,7 @@ activation_layer = PReLU(alpha=0.1)  # Create a PReLU layer with initial alpha=0
 output = activation_layer.forward(input_data)  # Apply PReLU activation
 gradient = activation_layer.backward(output_gradient, learning_rate=0.01)  # Calculate gradient and update alpha
 ```
+<br/>
 
 ### - Exponential Linear Unit (ELU())
 
@@ -267,6 +284,7 @@ activation_layer = ELU(alpha=0.5)  # Create an ELU layer with alpha=0.5
 output = activation_layer.forward(input_data)  # Apply ELU activation
 gradient = activation_layer.backward(output_gradient, learning_rate=0.01)  # Calculate gradient
 ```
+<br/>
 
 ### - Swish()
 
@@ -280,6 +298,7 @@ activation_layer = Swish(beta=0.5)  # Create a Swish layer with beta=0.5
 output = activation_layer.forward(input_data)  # Apply Swish activation
 gradient = activation_layer.backward(output_gradient, learning_rate=0.01)  # Calculate gradient
 ```
+<br/>
 
 ### Loss Functions (losses.py)
 
@@ -296,6 +315,7 @@ MSE is a common loss function used for regression tasks, where the goal is to pr
 loss = mse(y_true, y_pred)  # Calculate the MSE loss
 gradient = mse_prime(y_true, y_pred)  # Calculate the gradient of the MSE loss
 ```
+<br/>
 
 ### - Binary Cross-Entropy Loss Function
 
@@ -310,6 +330,7 @@ Binary Cross-Entropy (BCE) is a common loss function used for binary classificat
 loss = binary_cross_entropy(y_true, y_pred)  # Calculate the binary cross-entropy loss
 gradient = binary_cross_entropy_prime(y_true, y_pred)  # Calculate the gradient of the binary cross-entropy loss
 ```
+<br/>
 
 ### - Categorical Cross-Entropy Loss Function
 
@@ -324,6 +345,7 @@ Categorical Cross-Entropy (CCE) is a common loss function used for multi-class c
 loss = categorical_cross_entropy(y_true, y_pred)  # Calculate the categorical cross-entropy loss
 gradient = categorical_cross_entropy_prime(y_true, y_pred)  # Calculate the gradient of the categorical cross-entropy loss
 ```
+<br/>
 
 ### Activation Layer (activation_l.py)
 
@@ -350,6 +372,7 @@ activation_layer = Activation(activation=np.tanh, activation_prime=lambda x: 1 -
 output = activation_layer.forward(input_data)
 gradient = activation_layer.backward(output_gradient, learning_rate=0.01)
 ```
+<br/>
 
 ### Dense Layer (dense_l.py)
 
