@@ -18,30 +18,30 @@ The primary goal of Neurolib is to develop a versatile and efficient Python libr
 
 #### General Methods (network.py)
 
-##### one_hot_encode(labels)
+#### * one_hot_encode(labels)
 
-###### Description:
+#### Description:
 Performs one-hot encoding for the given labels.
 
-###### Parameters:
+#### Parameters:
 - `labels` (numpy.ndarray): The input labels to be one-hot encoded.
 
-###### Returns:
+#### Returns:
 - numpy.ndarray: The one-hot encoded labels.
 
-##### predict(network, input)
+#### * predict(network, input)
 
-###### Description:
+#### Description:
 Performs a forward pass through the neural network.
 
-###### Parameters:
+#### Parameters:
 - `network` (list): List of layers comprising the neural network.
 - `input` (numpy.ndarray): The input data for prediction.
 
-###### Returns:
+#### Returns:
 - numpy.ndarray: The output prediction of the neural network.
 
-###### Example Usage:
+#### Example Usage:
 ```python
 # Make predictions
 for input_sample in input_data_to_predict:
