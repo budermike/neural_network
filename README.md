@@ -29,7 +29,7 @@ Performs one-hot encoding for the given labels.
 #### Returns:
 - numpy.ndarray: The one-hot encoded labels.
 
-#### - predict(network, input)
+### - predict(network, input)
 
 #### Description:
 Performs a forward pass through the neural network.
