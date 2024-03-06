@@ -2,24 +2,28 @@
 
 Welcome to Neurolib, a journey into the fascinating world of neuroinformatics and neural networks through the creation of a Python library.
 <br/><br/><br/>
+
 ### About
 
 Neurolib is my personal exploration into neuroinformatics, driven by a deep curiosity and passion for understanding neural networks. While I may not have prior experience in neuroinformatics, I am excited to embark on this journey and share my progress with you.
 <br/><br/><br/>
+
 ### Goals
 
 The primary goal of Neurolib is to develop a versatile and efficient Python library for neural network experimentation and implementation. Through this project, I aim to learn, grow, and contribute to the field of neuroinformatics.
+<br/><br/><br/>
 
 ### To-Do
 
 - Improve training performance: Address overfitting issue on the MNIST dataset and enhance accuracy for self-written numbers.
 - Looking that all activation functions are Pickel compatible.
 - Test convolutional layer, optimizer and reshape
+<br/><br/><br/>
 
 ## Code Documentation
 
 ### General Methods (network.py)
-
+<br/><br/>
 ### - one_hot_encode(labels)
 
 #### Description:
@@ -372,6 +376,7 @@ dense_layer = Dense(10, 5)  # Create a dense layer with 10 inputs and 5 outputs
 output = dense_layer.forward(input_data)  # Perform forward pass
 gradient = dense_layer.backward(output_gradient, learning_rate=0.01)  # Perform backpropagation
 ```
+<br/><br/><br/>
 
 ## Contribution Guidelines
 
@@ -390,6 +395,7 @@ To ensure a smooth and collaborative development process, please adhere to the f
 6. **Testing**: If applicable, include tests to cover the functionality added or modified by your changes.
 
 7. **Documentation**: Update the documentation as needed to reflect any changes or additions to the codebase.
+<br/><br/><br/>
 
 ## Collaboration
 
@@ -398,6 +404,7 @@ Join me in shaping the future of neural networks and neuroinformatics! Whether y
 Let's collaborate and advance the field together. Feel free to reach out for questions, feedback, or collaboration opportunities:
 - Email: mathmeetsart01@gmail.com
 - Instagram: [art_meets_math](https://www.instagram.com/art_meets_math/)
+<br/><br/><br/>
 
 **About Me**
 
