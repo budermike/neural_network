@@ -14,6 +14,7 @@ The primary goal of Neurolib is to develop a versatile and efficient Python libr
 
 - Improve training performance: Address overfitting issue on the MNIST dataset and enhance accuracy for self-written numbers.
 - Looking that all activation functions are Pickel compatible.
+- Test convolutional layer, optimizer and reshape
 
 ## Code Documentation
 
@@ -150,7 +151,7 @@ Loads the trained network from the specified file in the given system path.
 
 ### Activation Functions (activations.py)
 
-### - Sigmoid
+### - Sigmoid()
 
 #### Description:
 Sigmoid activation function.
@@ -165,7 +166,7 @@ output = activation_layer.forward(input_data)  # Apply sigmoid activation
 gradient = activation_layer.backward(output_gradient, learning_rate=0.01)  # Calculate gradient
 ```
 
-### - Softmax
+### - Softmax()
 
 #### Description:
 Softmax activation function, used for multi-class classification.
@@ -180,7 +181,7 @@ output = output_layer.forward(logits)  # Apply softmax to logits (unnormalized s
 predicted_class = np.argmax(output, axis=1)  # Get the class with the highest probability
 ```
 
-### - Hyperbolic Tangent (Tanh)
+### - Hyperbolic Tangent (Tanh())
 
 #### Description:
 Hyperbolic Tangent (Tanh) activation function.
@@ -196,7 +197,7 @@ output = activation_layer.forward(input_data)  # Apply tanh activation
 gradient = activation_layer.backward(output_gradient, learning_rate=0.01)  # Calculate gradient
 ```
 
-### - Rectified Linear Unit (ReLU)
+### - Rectified Linear Unit (ReLU())
 
 #### Description:
 Rectified Linear Unit (ReLU) activation function.
@@ -213,7 +214,7 @@ output = activation_layer.forward(input_data)  # Apply ReLU activation
 gradient = activation_layer.backward(output_gradient, learning_rate=0.01)  # Calculate gradient
 ```
 
-### - Leaky Rectified Linear Unit (Leaky ReLU)
+### - Leaky Rectified Linear Unit (LeakyReLU())
 
 #### Description:
 Leaky Rectified Linear Unit (Leaky ReLU) activation function.
@@ -230,7 +231,7 @@ output = activation_layer.forward(input_data)  # Apply Leaky ReLU activation
 gradient = activation_layer.backward(output_gradient, learning_rate=0.01)  # Calculate gradient
 ```
 
-### - Parametric Rectified Linear Unit (PReLU)
+### - Parametric Rectified Linear Unit (PReLU())
 
 #### Description:
 Parametric Rectified Linear Unit (PReLU) activation function.
@@ -246,7 +247,7 @@ output = activation_layer.forward(input_data)  # Apply PReLU activation
 gradient = activation_layer.backward(output_gradient, learning_rate=0.01)  # Calculate gradient and update alpha
 ```
 
-### - Exponential Linear Unit (ELU)
+### - Exponential Linear Unit (ELU())
 
 #### Description:
 Exponential Linear Unit (ELU) activation function.
@@ -262,7 +263,7 @@ output = activation_layer.forward(input_data)  # Apply ELU activation
 gradient = activation_layer.backward(output_gradient, learning_rate=0.01)  # Calculate gradient
 ```
 
-### - Swish Activation
+### - Swish()
 
 #### Description:
 Swish activation function, a smooth, non-monotonic function that can outperform ReLU in some cases.
@@ -275,6 +276,102 @@ output = activation_layer.forward(input_data)  # Apply Swish activation
 gradient = activation_layer.backward(output_gradient, learning_rate=0.01)  # Calculate gradient
 ```
 
+### Loss Functions (losses.py)
+
+### - Mean Squared Error (MSE) Loss Function
+
+#### Description:
+Mean Squared Error (mse()) loss function and its derivative (mse_prime()).
+
+MSE is a common loss function used for regression tasks, where the goal is to predict a continuous value. It measures the average of the squared differences between the true values (`y_true`) and the predicted values (`y_pred`).
+
+**Usage:**
+
+```python
+loss = mse(y_true, y_pred)  # Calculate the MSE loss
+gradient = mse_prime(y_true, y_pred)  # Calculate the gradient of the MSE loss
+```
+
+### - Binary Cross-Entropy Loss Function
+
+#### Description:
+Binary Cross-Entropy loss function and its derivative.
+
+Binary Cross-Entropy (BCE) is a common loss function used for binary classification tasks, where the goal is to predict probabilities of two classes (0 and 1). It measures the difference between the true binary labels (`y_true`) and the predicted probabilities (`y_pred`).
+
+**Usage:**
+
+```python
+loss = binary_cross_entropy(y_true, y_pred)  # Calculate the binary cross-entropy loss
+gradient = binary_cross_entropy_prime(y_true, y_pred)  # Calculate the gradient of the binary cross-entropy loss
+```
+
+### - Categorical Cross-Entropy Loss Function
+
+#### Description:
+Categorical Cross-Entropy loss function and its derivative.
+
+Categorical Cross-Entropy (CCE) is a common loss function used for multi-class classification tasks, where the goal is to predict the probability distribution over multiple classes. It measures the difference between the true labels (`y_true`) and the predicted probabilities (`y_pred`).
+
+**Usage:**
+
+```python
+loss = categorical_cross_entropy(y_true, y_pred)  # Calculate the categorical cross-entropy loss
+gradient = categorical_cross_entropy_prime(y_true, y_pred)  # Calculate the gradient of the categorical cross-entropy loss
+```
+
+### Activation Layer (activation_l.py)
+
+#### Description:
+Activation layer in a neural network, applying a non-linear activation function during the forward pass and computing its derivative during the backward pass.
+
+**Activation Layer**
+
+This class represents an activation layer in a neural network. It applies a non-linear activation function to its input during the forward pass and calculates the derivative of the activation function during the backward pass.
+
+#### Key Features:
+- Inherits from the `Layer` class, providing a common interface for neural network layers.
+- Stores the activation function and its derivative for efficient calculations.
+- Implements the `forward` and `backward` methods for forward and backward propagation.
+
+#### Usage:
+1. Create an `Activation` object with the desired activation function and its derivative.
+2. Call `forward(input)` to apply the activation function during the forward pass.
+3. Call `backward(output_gradient, learning_rate)` to calculate the gradient during backpropagation.
+
+#### Example:
+```python
+activation_layer = Activation(activation=np.tanh, activation_prime=lambda x: 1 - np.tanh(x)**2)
+output = activation_layer.forward(input_data)
+gradient = activation_layer.backward(output_gradient, learning_rate=0.01)
+```
+
+### Dense Layer (dense_l.py)
+
+#### Description:
+Dense layer in a neural network, performing a linear transformation of its input followed by optional activation.
+
+**Dense Layer**
+
+This class represents a dense layer in a neural network. It performs a linear transformation of its input, followed by optional activation.
+
+#### Key Features:
+- Inherits from the `Layer` class, providing a common interface for neural network layers.
+- Initializes weights and biases with random values for learning.
+- Implements the `forward` method for forward propagation.
+- Implements the `backward` method for backpropagation and parameter updates.
+
+#### Usage:
+1. Create a `Dense` object with specified input and output sizes.
+2. Call `forward(input)` to perform the linear transformation and activation during the forward pass.
+3. Call `backward(output_gradient, learning_rate)` to calculate gradients and update weights and biases during backpropagation.
+
+#### Example:
+```python
+dense_layer = Dense(10, 5)  # Create a dense layer with 10 inputs and 5 outputs
+output = dense_layer.forward(input_data)  # Perform forward pass
+gradient = dense_layer.backward(output_gradient, learning_rate=0.01)  # Perform backpropagation
+```
 
 ## Contribution Guidelines
 
