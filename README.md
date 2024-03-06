@@ -1,11 +1,11 @@
 # Neurolib
 
 Welcome to Neurolib, a journey into the fascinating world of neuroinformatics and neural networks through the creation of a Python library.
-
+<br/><br/><br/>
 ### About
 
 Neurolib is my personal exploration into neuroinformatics, driven by a deep curiosity and passion for understanding neural networks. While I may not have prior experience in neuroinformatics, I am excited to embark on this journey and share my progress with you.
-
+<br/><br/><br/>
 ### Goals
 
 The primary goal of Neurolib is to develop a versatile and efficient Python library for neural network experimentation and implementation. Through this project, I aim to learn, grow, and contribute to the field of neuroinformatics.
