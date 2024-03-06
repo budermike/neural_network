@@ -2,17 +2,56 @@
 
 Welcome to Neurolib, a journey into the fascinating world of neuroinformatics and neural networks through the creation of a Python library.
 
-## About
+### About
 
 Neurolib is my personal exploration into neuroinformatics, driven by a deep curiosity and passion for understanding neural networks. While I may not have prior experience in neuroinformatics, I am excited to embark on this journey and share my progress with you.
 
-## Goals
+### Goals
 
 The primary goal of Neurolib is to develop a versatile and efficient Python library for neural network experimentation and implementation. Through this project, I aim to learn, grow, and contribute to the field of neuroinformatics.
 
-## To-Do
+### To-Do
 
 - Improve training performance: Address overfitting issue on the MNIST dataset and enhance accuracy for self-written numbers.
+
+### Code Documentation
+
+#### General Methods (network.py)
+
+##### one_hot_encode(labels)
+
+###### Description:
+Performs one-hot encoding for the given labels.
+
+###### Parameters:
+- `labels` (numpy.ndarray): The input labels to be one-hot encoded.
+
+###### Returns:
+- numpy.ndarray: The one-hot encoded labels.
+
+##### predict(network, input)
+
+###### Description:
+Performs a forward pass through the neural network.
+
+###### Parameters:
+- `network` (list): List of layers comprising the neural network.
+- `input` (numpy.ndarray): The input data for prediction.
+
+###### Returns:
+- numpy.ndarray: The output prediction of the neural network.
+
+###### Example Usage:
+```python
+# Make predictions
+for input_sample in input_data_to_predict:
+    
+    # Perform forward pass to get predictions
+    prediction = predict(network, input)
+
+    # Display the input and corresponding prediction
+    print(f"Input: {input}, Prediction: {prediction}")
+```
 
 ## Contribution Guidelines
 
