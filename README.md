@@ -13,6 +13,7 @@ The primary goal of Neurolib is to develop a versatile and efficient Python libr
 ### To-Do
 
 - Improve training performance: Address overfitting issue on the MNIST dataset and enhance accuracy for self-written numbers.
+- Looking that all activation functions are Pickel compatible.
 
 ## Code Documentation
 
@@ -146,6 +147,133 @@ Loads the trained network from the specified file in the given system path.
 - The loaded network object.
 
 #### Filetype: .pkl (pickle file)
+
+### Activation Functions (activations.py)
+
+### - Sigmoid
+
+#### Description:
+Sigmoid activation function.
+
+Squashes values to the range [0, 1], suitable for binary classification problems.
+
+**Usage:**
+
+```python
+activation_layer = Sigmoid()  # Create a sigmoid activation layer
+output = activation_layer.forward(input_data)  # Apply sigmoid activation
+gradient = activation_layer.backward(output_gradient, learning_rate=0.01)  # Calculate gradient
+```
+
+### - Softmax
+
+#### Description:
+Softmax activation function, used for multi-class classification.
+
+Outputs probabilities that sum to 1. Not suitable for hidden layers due to computational cost.
+
+**Usage:**
+
+```python
+output_layer = Softmax()  # Use Softmax in the output layer
+output = output_layer.forward(logits)  # Apply softmax to logits (unnormalized scores)
+predicted_class = np.argmax(output, axis=1)  # Get the class with the highest probability
+```
+
+### - Hyperbolic Tangent (Tanh)
+
+#### Description:
+Hyperbolic Tangent (Tanh) activation function.
+
+Squashes values to the range [-1, 1], useful for preserving information about the sign of inputs.
+Suitable for general-purpose activation in neural networks.
+
+**Usage:**
+
+```python
+activation_layer = Tanh()  # Create a tanh activation layer
+output = activation_layer.forward(input_data)  # Apply tanh activation
+gradient = activation_layer.backward(output_gradient, learning_rate=0.01)  # Calculate gradient
+```
+
+### - Rectified Linear Unit (ReLU)
+
+#### Description:
+Rectified Linear Unit (ReLU) activation function.
+
+Simple and efficient activation function, often used as a default choice.
+Can suffer from the "dying ReLU" problem if not properly initialized.
+Suitable for general-purpose activation in neural networks.
+
+**Usage:**
+
+```python
+activation_layer = ReLU()  # Create a ReLU activation layer
+output = activation_layer.forward(input_data)  # Apply ReLU activation
+gradient = activation_layer.backward(output_gradient, learning_rate=0.01)  # Calculate gradient
+```
+
+### - Leaky Rectified Linear Unit (Leaky ReLU)
+
+#### Description:
+Leaky Rectified Linear Unit (Leaky ReLU) activation function.
+
+Addresses the dying ReLU problem by allowing small negative values to pass through with a scaled slope.
+Introduces a hyperparameter `alpha` to control the slope.
+Suitable for general-purpose activation, especially when dealing with sparse inputs.
+
+**Usage:**
+
+```python
+activation_layer = LeakyReLU(alpha=0.1)  # Create a Leaky ReLU layer with alpha=0.1
+output = activation_layer.forward(input_data)  # Apply Leaky ReLU activation
+gradient = activation_layer.backward(output_gradient, learning_rate=0.01)  # Calculate gradient
+```
+
+### - Parametric Rectified Linear Unit (PReLU)
+
+#### Description:
+Parametric Rectified Linear Unit (PReLU) activation function.
+
+Similar to Leaky ReLU, but instead of a fixed `alpha`, learns the optimal slope for negative values during training.
+Introduces more parameters but can be more flexible.
+
+**Usage:**
+
+```python
+activation_layer = PReLU(alpha=0.1)  # Create a PReLU layer with initial alpha=0.1
+output = activation_layer.forward(input_data)  # Apply PReLU activation
+gradient = activation_layer.backward(output_gradient, learning_rate=0.01)  # Calculate gradient and update alpha
+```
+
+### - Exponential Linear Unit (ELU)
+
+#### Description:
+Exponential Linear Unit (ELU) activation function.
+
+Pushes mean unit activations closer to zero, potentially speeding up learning.
+More computationally expensive than ReLU variants.
+
+**Usage:**
+
+```python
+activation_layer = ELU(alpha=0.5)  # Create an ELU layer with alpha=0.5
+output = activation_layer.forward(input_data)  # Apply ELU activation
+gradient = activation_layer.backward(output_gradient, learning_rate=0.01)  # Calculate gradient
+```
+
+### - Swish Activation
+
+#### Description:
+Swish activation function, a smooth, non-monotonic function that can outperform ReLU in some cases.
+
+**Usage:**
+
+```python
+activation_layer = Swish(beta=0.5)  # Create a Swish layer with beta=0.5
+output = activation_layer.forward(input_data)  # Apply Swish activation
+gradient = activation_layer.backward(output_gradient, learning_rate=0.01)  # Calculate gradient
+```
 
 
 ## Contribution Guidelines
