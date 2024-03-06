@@ -23,7 +23,6 @@ The primary goal of Neurolib is to develop a versatile and efficient Python libr
 ## Code Documentation
 
 ### General Methods (network.py)
-<br/>
 
 ### - one_hot_encode(labels)
 
@@ -165,7 +164,6 @@ Loads the trained network from the specified file in the given system path.
 <br/>
 
 ### Activation Functions (activations.py)
-<br/>
 
 ### - Sigmoid()
 
