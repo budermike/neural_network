@@ -14,11 +14,11 @@ The primary goal of Neurolib is to develop a versatile and efficient Python libr
 
 - Improve training performance: Address overfitting issue on the MNIST dataset and enhance accuracy for self-written numbers.
 
-### Code Documentation
+## Code Documentation
 
-#### General Methods (network.py)
+### General Methods (network.py)
 
-#### - one_hot_encode(labels)
+### - one_hot_encode(labels)
 
 #### Description:
 Performs one-hot encoding for the given labels.
