@@ -16,7 +16,7 @@ The primary goal of Neurolib is to develop a versatile and efficient Python libr
 ### To-Do
 
 - Improve training performance: Address overfitting issue on the MNIST dataset and enhance accuracy for self-written numbers.
-- Looking that all activation functions are Pickel compatible.
+- Looking that all activation functions are Pickel compatible (Functions ReLU and following).
 - Test convolutional layer, optimizer and reshape
 <br/><br/><br/>
 
