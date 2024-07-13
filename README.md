@@ -25,6 +25,7 @@ The primary goal of Neurolib is to develop a versatile and efficient Python libr
 ### General Methods (network.py)
 
 '''python
+
         one_hot_encode(labels)
 '''
 
