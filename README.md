@@ -36,7 +36,7 @@ Performs one-hot encoding for the given labels.
 - numpy.ndarray: The one-hot encoded labels.
 <br/>
 
-### - predict(network, input)
+        predict(network, input)
 
 #### Description:
 Performs a forward pass through the neural network.
@@ -49,7 +49,7 @@ Performs a forward pass through the neural network.
 - numpy.ndarray: The output prediction of the neural network.
 <br/>
 
-### - train(network, loss, loss_prime, x_train, y_train, epochs=1000, learning_rate=0.01, verbose=True, detailed_verbose=True, statistics=True, L1=False, L2=False, L1_reg=0.0, L2_reg=0.0)
+        train(network, loss, loss_prime, x_train, y_train, epochs=1000, learning_rate=0.01, verbose=True, detailed_verbose=True, statistics=True, L1=False, L2=False, L1_reg=0.0, L2_reg=0.0)
 
 #### Description:
 Trains the neural network using the specified training data and hyperparameters.
@@ -71,7 +71,7 @@ Trains the neural network using the specified training data and hyperparameters.
 - `L2_reg` (float): L2 regularization parameter. (default: 0.0)
 <br/>
 
-### - show_para(epochs, learning_rate, network, L1_reg, L2_reg)
+        show_para(epochs, learning_rate, network, L1_reg, L2_reg)
 
 #### Description:
 Displays the hyperparameters used for training.
@@ -84,7 +84,7 @@ Displays the hyperparameters used for training.
 - `L2_reg` (float): L2 regularization parameter.
 <br/>
 
-### - accuracy(network, x_test, y_test)
+        accuracy(network, x_test, y_test)
 
 #### Description:
 Evaluates the accuracy of the trained network on the test data.
@@ -95,7 +95,7 @@ Evaluates the accuracy of the trained network on the test data.
 - `y_test` (numpy.ndarray): The target test data.
 <br/>
 
-### - test_network(network, x_test, y_test, title, show_img=False, reshape_x=None, reshape_y=None)
+        test_network(network, x_test, y_test, title, show_img=False, reshape_x=None, reshape_y=None)
 
 #### Description:
 Tests the trained network on the test data and displays results.
@@ -110,7 +110,7 @@ Tests the trained network on the test data and displays results.
 - `reshape_y` (int): Reshape dimension for y data.
 <br/>
 
-### - own_image_predict(network, x_test, title, reshape_x, reshape_y)
+        own_image_predict(network, x_test, title, reshape_x, reshape_y)
 
 #### Description:
 Makes predictions on custom images using the trained network.
@@ -123,7 +123,7 @@ Makes predictions on custom images using the trained network.
 - `reshape_y` (int): Reshape dimension for y data.
 <br/>
 
-### - add_parent_dir(dir_path)
+        add_parent_dir(dir_path)
 
 #### Description:
 Adds the parent directory of the given directory to the system path.
@@ -135,7 +135,7 @@ Adds the parent directory of the given directory to the system path.
 - parent directory
 <br/>
 
-### - save_network(network, directory, filename)
+        save_network(network, directory, filename)
 
 #### Description:
 Saves the trained network in the specified directory with the specified filename.
@@ -148,7 +148,7 @@ Saves the trained network in the specified directory with the specified filename
 #### Filetype: .pkl (pickle file)
 <br/>
 
-### - load_network(system_path, file_name)
+        load_network(system_path, file_name)
 
 #### Description:
 Loads the trained network from the specified file in the given system path.
@@ -165,7 +165,7 @@ Loads the trained network from the specified file in the given system path.
 
 ### Activation Functions (activations.py)
 
-### - Sigmoid()
+        Sigmoid()
 
 #### Description:
 Sigmoid activation function.
@@ -181,7 +181,7 @@ gradient = activation_layer.backward(output_gradient, learning_rate=0.01)  # Cal
 ```
 <br/>
 
-### - Softmax()
+        Softmax()
 
 #### Description:
 Softmax activation function, used for multi-class classification.
@@ -197,7 +197,7 @@ predicted_class = np.argmax(output, axis=1)  # Get the class with the highest pr
 ```
 <br/>
 
-### - Hyperbolic Tangent (Tanh())
+        Hyperbolic Tangent (Tanh())
 
 #### Description:
 Hyperbolic Tangent (Tanh) activation function.
@@ -214,7 +214,7 @@ gradient = activation_layer.backward(output_gradient, learning_rate=0.01)  # Cal
 ```
 <br/>
 
-### - Rectified Linear Unit (ReLU())
+        Rectified Linear Unit (ReLU())
 
 #### Description:
 Rectified Linear Unit (ReLU) activation function.
@@ -232,7 +232,7 @@ gradient = activation_layer.backward(output_gradient, learning_rate=0.01)  # Cal
 ```
 <br/>
 
-### - Leaky Rectified Linear Unit (LeakyReLU())
+        Leaky Rectified Linear Unit (LeakyReLU())
 
 #### Description:
 Leaky Rectified Linear Unit (Leaky ReLU) activation function.
@@ -250,7 +250,7 @@ gradient = activation_layer.backward(output_gradient, learning_rate=0.01)  # Cal
 ```
 <br/>
 
-### - Parametric Rectified Linear Unit (PReLU())
+        Parametric Rectified Linear Unit (PReLU())
 
 #### Description:
 Parametric Rectified Linear Unit (PReLU) activation function.
@@ -267,7 +267,7 @@ gradient = activation_layer.backward(output_gradient, learning_rate=0.01)  # Cal
 ```
 <br/>
 
-### - Exponential Linear Unit (ELU())
+        Exponential Linear Unit (ELU())
 
 #### Description:
 Exponential Linear Unit (ELU) activation function.
@@ -284,7 +284,7 @@ gradient = activation_layer.backward(output_gradient, learning_rate=0.01)  # Cal
 ```
 <br/>
 
-### - Swish()
+        Swish()
 
 #### Description:
 Swish activation function, a smooth, non-monotonic function that can outperform ReLU in some cases.
@@ -300,7 +300,7 @@ gradient = activation_layer.backward(output_gradient, learning_rate=0.01)  # Cal
 
 ### Loss Functions (losses.py)
 
-### - Mean Squared Error (MSE) Loss Function
+        Mean Squared Error (MSE) Loss Function
 
 #### Description:
 Mean Squared Error (mse()) loss function and its derivative (mse_prime()).
@@ -315,7 +315,7 @@ gradient = mse_prime(y_true, y_pred)  # Calculate the gradient of the MSE loss
 ```
 <br/>
 
-### - Binary Cross-Entropy Loss Function
+        Binary Cross-Entropy Loss Function
 
 #### Description:
 Binary Cross-Entropy loss function and its derivative.
@@ -330,7 +330,7 @@ gradient = binary_cross_entropy_prime(y_true, y_pred)  # Calculate the gradient 
 ```
 <br/>
 
-### - Categorical Cross-Entropy Loss Function
+        Categorical Cross-Entropy Loss Function
 
 #### Description:
 Categorical Cross-Entropy loss function and its derivative.
@@ -345,7 +345,7 @@ gradient = categorical_cross_entropy_prime(y_true, y_pred)  # Calculate the grad
 ```
 <br/>
 
-### Activation Layer (activation_l.py)
+        Activation Layer (activation_l.py)
 
 #### Description:
 Activation layer in a neural network, applying a non-linear activation function during the forward pass and computing its derivative during the backward pass.
@@ -372,7 +372,7 @@ gradient = activation_layer.backward(output_gradient, learning_rate=0.01)
 ```
 <br/>
 
-### Dense Layer (dense_l.py)
+        Dense Layer (dense_l.py)
 
 #### Description:
 Dense layer in a neural network, performing a linear transformation of its input followed by optional activation.
